@@ -78,3 +78,18 @@ def window(lst):
             
     # return first and last index of unsorted elements 
     return (wdw[0], wdw[-1])
+
+# in any given array, find the greatest sum produced by a substring of contiguous elements
+
+def contiguous_window(lst):
+    
+    sum_overallhighest = 0
+    sum_currentpos = 0
+    
+    for num in lst:
+        # used for determining maximum sum when there are negative values
+        # is the value of the number greater than the value of the number plus the current sum?
+        sum_currentpos = max(num, sum_currentpos+num)
+        sum_overallhighest = max(sum_overallhighest, sum_currentpos)
+            
+    return sum_overallhighest
